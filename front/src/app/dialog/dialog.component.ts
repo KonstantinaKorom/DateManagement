@@ -27,11 +27,9 @@ export class DialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data,
     private dialogRef: MatDialogRef<DialogComponent>,
-    private holidayService: HolidaysService,
-    private dataAdapter: DateAdapter<Date>
-
+    private holidayService: HolidaysService
    ) {
-this.dataAdapter.setLocale('');
+
     }
 
   ngOnInit(): void {
@@ -44,12 +42,12 @@ this.dataAdapter.setLocale('');
 
   //TODO changes, not working
   onSave() {
-    let holiday: Holiday
-    holiday.date = this.sendValue;
-    let status: Status;
-    status.datestatus = "holiday";
-    holiday.status = status;
-    this.dialogRef.close(this.holidayService.createHoliday(holiday));
+    // let holiday: Holiday
+    // holiday.date = this.sendValue;
+    // let status: Status;
+    // status.datestatus = "holiday";
+    // holiday.status = status;
+    // this.dialogRef.close(this.holidayService.createHoliday(holiday));
 
   }
 }
