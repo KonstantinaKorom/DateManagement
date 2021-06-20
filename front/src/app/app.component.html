@@ -1,0 +1,21 @@
+<h1>{{ title }} </h1>
+
+<mat-table *ngIf="holidays" [dataSource]="holidays" matSort class="mat-elevation-z8">
+
+  <ng-container *ngFor="let column of columns" [matColumnDef]="column">
+    <mat-header-cell *matHeaderCellDef>{{ column }}</mat-header-cell>
+    <mat-cell *matCellDef="let object; ">
+      <div *ngIf="column!=='action' ">{{ object[column] | values }}</div>
+      <div *ngIf="column === 'action' "><button mat-icon-button (click)="onDelete(object)">
+          <mat-icon>delete</mat-icon>
+        </button></div>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+
+</mat-table>
+<button mat-button (click)="openDialog()">Add</button>
+
+<router-outlet></router-outlet>
